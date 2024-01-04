@@ -1,8 +1,4 @@
-<<<<<<< HEAD
- {
-=======
 {
->>>>>>> 9a54eab (1 to 9)
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
     "check-lint": "lint [0-9]*.js",
