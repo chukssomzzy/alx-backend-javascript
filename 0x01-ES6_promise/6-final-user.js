@@ -7,7 +7,7 @@ export default function handleUserSignUp(firstName, lastName, fileName) {
     .then((results) => {
       const resArray = results.map((result) => ({
         status: result.status,
-        value: result.value ? result.value : result.reason,
+        value: o.status === 'fulfilled' ? o.value : String(o.reason),
       }));
       return resArray;
     });
