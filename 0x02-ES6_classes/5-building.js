@@ -12,7 +12,7 @@ export default class Building {
     }
     this._sqft = sqft;
     if (new.target !== Building) {
-      hasAbstractFunc(this.constructor, Building, 'evacuationWaringMessage');
+      hasAbstractFunc(this.constructor, Building, 'evacuationWarningMessage');
     }
   }
 
