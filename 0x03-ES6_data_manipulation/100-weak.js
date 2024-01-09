@@ -1,7 +1,7 @@
 export const weakMap = new WeakMap();
 
 export function queryAPI(endpoint) {
-  if (endpoint instanceof Object) {
+  if (typeof endpoint === 'object' && typeof endpoint.name === 'string' && typeof endpoint.protocol === 'string') {
     const calls = weakMap.get(endpoint) || 0;
     weakMap.set(endpoint, calls + 1);
 
