@@ -1,5 +1,7 @@
+#!/usr/bin/node
+
 function displayMessage(strToPrint) {
-  console.log(strToPrint)
+  console.log(strToPrint);
 }
 
-module.exports = displayMessage
+module.exports = displayMessage;
