@@ -1,11 +1,9 @@
 #!/usr/bin/node
 
+console.log('Welcome to Holberton School, what is your name?');
+process.stdout.write('Your name is: ');
+process.stdin.setEncoding('utf-8');
 
-console.log("Welcome to Holberton School, what is your name?")
+process.stdin.read();
 
-process.stdin.setEncoding('utf-8')
-
-
-process.stdin.on('readable', function() {
-
-})
+process.on('exit', () => console.log('This important software is now closing'));
