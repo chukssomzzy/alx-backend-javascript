@@ -7,9 +7,16 @@ const fieldInrIdx = 0;
 const fieldLen = 4;
 
 function printField(fieldFound) {
-  for (const [field, names] of Object.entries(fieldFound)) {
-    console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
-  }
+  return new Promise((res) => {
+    const outString = [];
+
+    for (const [field, names] of Object.entries(fieldFound)) {
+      const csvString = `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`;
+      outString.push(csvString);
+      console.log(csvString);
+    }
+    res(outString);
+  });
 }
 
 function sepField(lines) {
