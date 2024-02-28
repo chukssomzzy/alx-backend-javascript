@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
 const fs = require('fs');
-const Buffer = require('buffer');
 
 const fieldIdx = 3;
 const fieldInrIdx = 0;
@@ -52,7 +51,7 @@ function splitToLine(data) {
 
 function readLine(path) {
   return new Promise((res, rej) => {
-    fs.readFile(path, encoding='utf-8', (err, data) => {
+    fs.readFile(path, {encoding: 'utf-8'}, (err, data) => {
       if (err) {
         rej(new Error('Cannot load the database'));
       }
