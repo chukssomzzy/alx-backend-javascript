@@ -6,7 +6,7 @@ const fieldIdx = 3;
 const fieldInrIdx = 0;
 const fieldLen = 4;
 
-function printField(fieldFound) {
+function printField([fieldFound, numStudent]) {
   return new Promise((res) => {
     const outString = [];
 
@@ -15,7 +15,7 @@ function printField(fieldFound) {
       outString.push(csvString);
       console.log(csvString);
     }
-    res(outString);
+    res([outString, numStudent]);
   });
 }
 
@@ -33,8 +33,8 @@ function sepField(lines) {
         }
       }
     }
-    console.log(`Number of students: ${lines.length}`);
-    res(fieldFound);
+    const numStudent = `Number of students: ${lines.length}`;
+    res([fieldFound, numStudent]);
   });
 }
 

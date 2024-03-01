@@ -18,7 +18,8 @@ const app = http.createServer((req, res) => {
     res.statusCode = 200;
     res.write('This is the list of our students\n');
     countStudents(dbUrl)
-      .then((studentList) => {
+      .then(([studentList, numStudent]) => {
+        res.write(`${numStudent}\n`);
         res.write(studentList.join('\n'));
         res.end('');
       });
