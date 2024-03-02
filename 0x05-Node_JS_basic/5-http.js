@@ -10,7 +10,7 @@ const fieldIdx = 3;
 const values = 4;
 const studentName = 0;
 
-function readCSV() {
+function readCSV () {
   const fileCont = readFileSync(dbUrl, { encoding: 'utf-8' });
   let students = 0;
   const studentsByField = {};
@@ -51,6 +51,9 @@ const app = http.createServer((req, res) => {
       }
     }
     res.status_code = 200;
+  } else if (urlObj.pathname === '/students' && !dbUrl) {
+    res.statusCode = 404;
+    res.write('Cannot load the database');
   }
   res.end();
 });
