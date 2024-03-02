@@ -31,7 +31,7 @@ function readCSV() {
 }
 const app = http.createServer((req, res) => {
   const urlObj = new URL(req.url, `http://${req.headers.host}`);
-  res.setHeader('Content-Type', 'Text/Plain');
+  res.setHeader('Content-Type', 'text/plain');
 
   if (urlObj.pathname === '/') {
     res.statusCode = 200;
@@ -50,6 +50,7 @@ const app = http.createServer((req, res) => {
         res.write('\n');
       }
     }
+    res.status_code = 200;
   }
   res.end();
 });
