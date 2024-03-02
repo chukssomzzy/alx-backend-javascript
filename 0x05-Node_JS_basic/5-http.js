@@ -10,7 +10,7 @@ const fieldIdx = 3;
 const values = 4;
 const studentName = 0;
 
-function readCSV () {
+function readCSV() {
   const fileCont = readFileSync(dbUrl, { encoding: 'utf-8' });
   let students = 0;
   const studentsByField = {};
