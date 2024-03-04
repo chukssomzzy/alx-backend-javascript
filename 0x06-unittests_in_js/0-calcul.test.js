@@ -14,13 +14,25 @@ describe('test calculate round number', function () {
 
   it('only first argument passed', function() {
     assert.ok(!calculateNumber(3.4));
-  })
+  });
 
   it('first argument number and second argument string', function() {
     assert.ok(!calculateNumber(4, 'four'));
-  })
+  });
 
   it('No argument passed', function() {
     assert.ok(!calculateNumber());
-  })
+  });
+
+  it('first argument rounded', function() {
+    assert.equal(calculateNumber(3.7, 3.8), 8);
+  });
+
+  it('second argument rounded down', function() {
+    assert.equal(calculateNumber(3, 3.4), 6);
+  });
+
+  it('first argument rounded up second argument rounded down', function() {
+    assert.equal(calculateNumber(8.6, 7.2), 16);
+  });
 })
