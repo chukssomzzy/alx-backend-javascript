@@ -10,20 +10,20 @@ export default function readDatabase(dbUrl) {
       const studentsByField = {};
       if (err) {
         reject(new Error('Cannot load database'));
-      }
+      } else {
+        for (const line of data.split('\n').slice(1)) {
+          const splitLines = line.split(',');
 
-      for (const line of data.split('\n').slice(1)) {
-        const splitLines = line.split(',');
-
-        if (splitLines.length === values) {
-          if (studentsByField[splitLines[fieldIdx]]) {
-            studentsByField[splitLines[fieldIdx]].push(splitLines[fieldItr]);
-          } else {
-            studentsByField[splitLines[fieldIdx]] = [splitLines[fieldItr]];
+          if (splitLines.length === values) {
+            if (studentsByField[splitLines[fieldIdx]]) {
+              studentsByField[splitLines[fieldIdx]].push(splitLines[fieldItr]);
+            } else {
+              studentsByField[splitLines[fieldIdx]] = [splitLines[fieldItr]];
+            }
           }
         }
+        resolve(studentsByField);
       }
-      resolve(studentsByField);
     });
   });
 }
